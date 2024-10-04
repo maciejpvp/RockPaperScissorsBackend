@@ -72,7 +72,7 @@ module.exports = (socket) => {
             message: "You Lose",
             oppMove: player1Choice,
           });
-          socket.to(player2).emit("results", {
+          socket.to(player1).emit("results", {
             message: "You Won",
             oppMove: choice,
           });
