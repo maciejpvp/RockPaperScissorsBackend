@@ -14,8 +14,9 @@ module.exports = (socket) => {
       const roomId = uuidv4();
 
       rooms[roomId] = {
-        player1: { id: player1, choice: null },
-        player2: { id: player2, choice: null },
+        player1: { id: player1, choice: null, points: 0 },
+        player2: { id: player2, choice: null, points: 0 },
+        playAgain: null,
       };
 
       socket.to(player1).emit("lobby-created", { roomId, player1, player2 });

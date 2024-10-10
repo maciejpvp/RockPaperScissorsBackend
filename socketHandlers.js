@@ -1,5 +1,7 @@
 const joinQueueHandler = require("./handlers/joinQueueHandler");
 const makeMoveHandler = require("./handlers/makeMoveHandler");
+const playAgainHandler = require("./handlers/playAgainHandler");
+const exitLobbyHandler = require("./handlers/exitLobbyHandler");
 
 module.exports = (io) => {
   io.on("connection", (socket) => {
@@ -7,6 +9,8 @@ module.exports = (io) => {
 
     joinQueueHandler(socket);
     makeMoveHandler(socket);
+    playAgainHandler(socket);
+    exitLobbyHandler(socket);
 
     socket.on("disconnect", () => {
       console.log("User disconnected:", socket.id);
